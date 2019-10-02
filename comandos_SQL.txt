@@ -1,0 +1,61 @@
+-- remove a tabela tb_curso
+-- DROP TABLE tb_curso;
+
+-- cria a tabela curso
+CREATE TABLE tb_curso(
+	id SERIAL PRIMARY KEY,
+	nome varchar(60),
+	sigla varchar(10)
+);
+
+-- cria a tabela aluno linkando campos com a tabela tb_aluno
+CREATE TABLE tb_aluno(
+	id SERIAL PRIMARY KEY,
+	id_curso integer NOT NULL,
+	nome varchar(60),
+	CONSTRAINT aluno_curso_fkey FOREIGN KEY (id_curso)
+		REFERENCES tb_curso(id)
+);
+
+-- inserção de dados na tabela tb_curso
+INSERT INTO tb_curso(nome,sigla)
+	values ('Engenharia da Computação','ENGCOMP');
+
+INSERT INTO tb_curso(nome,sigla)
+	values ('Nutrição','NUTRI');
+
+INSERT INTO tb_curso(nome,sigla)
+	values ('Direito','DIR');
+	
+-- recuperar todos os registros da tabela curso	
+SELECT * FROM tb_curso;
+
+-- recuperar apenas os nomes dos cursos
+SELECT nome FROM tb_curso;
+SELECT id,nome FROM tb_curso;
+
+-- recuperar os cursos de maneira ordenada
+SELECT * FROM tb_curso ORDER BY nome desc;
+	
+-- atualizar os dados de um registro
+UPDATE tb_curso SET nome='Farmácia',sigla='FARM' WHERE id=3;
+SELECT * FROM tb_curso WHERE id= 3;
+
+-- modificar dados
+UPDATE tb_curso SET nome='Engenharia Civil',sigla='ENGCIV' WHERE id=1;
+SELECT * FROM tb_curso WHERE id= 1;
+
+-- apagar um registro 
+DELETE FROM tb_curso WHERE id=2;
+SELECT * FROM tb_curso WHERE id=2;
+
+UPDATE tb_curso SET nome='Engenharia da Computação';
+
+-- inserção de um novo aluno
+INSERT INTO tb_aluno (id_curso,nome) VALUES (1,'João da Silva');
+INSERT INTO tb_aluno (id_curso,nome) VALUES (1,'José Antônio');
+INSERT INTO tb_aluno (id_curso,nome) VALUES (3,'Carlos Fernando');
+INSERT INTO tb_aluno (id_curso,nome) VALUES (4,'Ana Maria');
+
+-- junção de dados de duas de duas tabelas
+SELECT a.nome, c.nome FROM tb_aluno as a INNER JOIN tb_curso as c ON (a.id_curso = c.id);
