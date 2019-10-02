@@ -5,7 +5,7 @@ Autor: Quemuel Alves Nassor.
 
 Universidade: Unaerp.
 
-Neste primeiro módulo foi empregada intrudução ao banco de dados integrado em aplicações Java.
+Neste último módulo foi empregada intrudução ao banco de dados integrado em aplicações Java.
 
 # Conteúdo:
 <p>&emsp; Integração de Banco de Dados em aplicações Java<p>
