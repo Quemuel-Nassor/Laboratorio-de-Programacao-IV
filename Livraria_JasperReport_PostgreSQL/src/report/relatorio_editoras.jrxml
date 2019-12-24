@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_editoras" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="01495cc6-6c0c-4efd-8d93-ee430bc598c2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="TIPO_ORDENACAO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM editora ORDER BY $P!(TIPO_ORDENACAO)]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="f5cc6e49-d6b0-4b57-b230-0a0f0c2eaaab"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Times New Roman" size="25"/>
+				</textElement>
+				<text><![CDATA[Livraria do João]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="31" width="465" height="20" uuid="dbe161b1-65e7-4c37-a8d0-b9e479e3ada5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="15"/>
+				</textElement>
+				<text><![CDATA[Av. Costábile Romano, 2201 - Ribeirânia, Ribeirão Preto - SP, 1413096-900]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="51" width="99" height="19" uuid="f8114880-e06c-49bd-a452-bdeb6dc27d50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="15"/>
+				</textElement>
+				<text><![CDATA[(16) 3603-7000]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="35" uuid="5669a59c-9146-4ed4-a7b9-72638a9fcc6c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[Relatório de Editoras]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="31" uuid="501c4d73-cc37-40ca-b743-58cd9eff8285"/>
+				<textElement>
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="0" width="440" height="31" uuid="6baa9755-04d8-464a-b0d1-cd226812f5f3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="1a7723c9-a47f-4aa6-9384-aae2bad63390"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="0" width="440" height="20" uuid="a0a5dc6e-6bfd-4906-bb3d-bca67a96bfab"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="509" y="17" width="23" height="20" uuid="825bf7f1-b6ce-4a7d-9261-857e7949a221"/>
+				<text><![CDATA[ de ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="17" width="40" height="20" uuid="3fd29da1-b32c-4b26-9a7b-ac8356d60803"/>
+				<text><![CDATA[página]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="532" y="17" width="23" height="20" uuid="cab9f377-daa5-452d-9391-e192481d5f3c"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="17" width="23" height="20" uuid="500cbef0-f6b6-48e0-b3e9-99ed61a9ce5c"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

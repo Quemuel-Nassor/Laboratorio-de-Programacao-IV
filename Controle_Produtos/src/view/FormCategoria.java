@@ -282,11 +282,11 @@ public class FormCategoria extends javax.swing.JFrame {
         int id = -1;
             if(txtIdCategoria.getText().isEmpty()){
                 //inserir o registro na tabela
-                id = new CategoriaDAO().inserir(c);
+//                id = new CategoriaDAO().inserir(c);
             }else{
-                //atualizar o registro tabela
-                c.setId(Integer.parseInt(txtIdCategoria.getText()));
-                id = new CategoriaDAO().atualizar(c);
+//                //atualizar o registro tabela
+//                c.setId(Integer.parseInt(txtIdCategoria.getText()));
+//                id = new CategoriaDAO().atualizar(c);
             }
         
         if(id != -1){
@@ -313,7 +313,7 @@ public class FormCategoria extends javax.swing.JFrame {
             
             //recuperando informações do objeto
             c.setNome(txtNomeCategoria.getText());
-            c.setId(Integer.parseInt(txtIdCategoria.getText()));
+//            c.setId(Integer.parseInt(txtIdCategoria.getText()));
             
             if (resp == JOptionPane.YES_OPTION){
                 //remover o registro tabela

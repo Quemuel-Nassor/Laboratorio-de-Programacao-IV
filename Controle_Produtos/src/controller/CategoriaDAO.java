@@ -33,13 +33,13 @@ public class CategoriaDAO {
     
     public int salvar(Categoria p){
         try {
-            Categoria obj;
-            if(p.getId() == null){
-                obj = p;
-            }else{
-                obj = em.find(Categoria.class, p.getId());
-                obj.setNome(p.getNome());
-            }
+            Categoria obj = p;
+//            if(p.getId() == null){
+//                obj = p;
+//            }else{
+//                obj = em.find(Categoria.class, p.getId());
+//                obj.setNome(p.getNome());
+//            }
             em.getTransaction().begin();
             em.merge(obj);
             em.getTransaction().commit();

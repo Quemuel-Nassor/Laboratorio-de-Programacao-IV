@@ -78,10 +78,10 @@ public class ProdutoDAO {
         }
     }
     
-    public List<Produto> pesquisarPorNome(String nome){
+    public List<Produto> pesquisarPorNome(String name){
         try{
             Query q = em.createQuery("SELECT p FROM Produto p WHERE p.nome LIKE :nome ORDER BY p.nome ");
-            q.setParameter("nome", "%"+nome+"%");
+            q.setParameter("name", "%"+name+"%");
             return q.getResultList();
         }catch(Exception e){
             System.out.println("ERRO: " + e.getMessage());
